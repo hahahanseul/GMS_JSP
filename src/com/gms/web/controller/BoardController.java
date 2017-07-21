@@ -1,0 +1,56 @@
+package com.gms.web.controller;
+
+
+import com.gms.web.constant.Butt;
+import com.gms.web.domain.ArticleBean;
+import com.gms.web.service.ArticleService;
+import com.gms.web.service.ArticleServiceImpl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.*;
+
+public class BoardController {
+ public static void main(String[] args) {
+	 Butt[] buttons = {Butt.EXIT,Butt.ADD,Butt.LIST,Butt.FIND_ID,Butt.FIND_SEQ,Butt.COUNT,Butt.UPDATE,Butt.DEL};
+	 ArticleBean bean = new ArticleBean();
+	 List<ArticleBean> list = new ArrayList<>();
+	 do{
+		flag:
+		switch((Butt)JOptionPane.showInputDialog(null, "MEMBER ADMIN","SELECT MENU", JOptionPane.QUESTION_MESSAGE,null, buttons,buttons[1])) {
+		case EXIT:
+			return;
+		case ADD:
+			String[] arr = (JOptionPane.showInputDialog("id/글제목/내용")).split("/");
+			bean.setId(arr[0]);
+			bean.setTitle(arr[1]);
+			bean.setContent(arr[2]);
+			JOptionPane.showMessageDialog(null, ArticleServiceImpl.getInstance().write(bean));
+			break flag;
+		case COUNT:
+			JOptionPane.showMessageDialog(null, ArticleServiceImpl.getInstance().count());
+			break flag;
+		case LIST:
+			JOptionPane.showMessageDialog(null, ArticleServiceImpl.getInstance().list());
+			break flag;
+		case FIND_ID:
+			JOptionPane.showMessageDialog(null,  ArticleServiceImpl.getInstance().findById(JOptionPane.showInputDialog("작성자 ID를 입력하세요.")));
+			break flag;
+		case FIND_SEQ:
+			JOptionPane.showMessageDialog(null, ArticleServiceImpl.getInstance().findBySeq(Integer.parseInt(JOptionPane.showInputDialog("작성글 번호를 입력하세요."))));
+			break flag;
+		case UPDATE:
+			bean.setArticleSeq(Integer.parseInt(JOptionPane.showInputDialog("글번호를 입력하세요")));
+			bean.setTitle(JOptionPane.showInputDialog("제목을 입력하세요"));
+			bean.setContent(JOptionPane.showInputDialog("수정내용을 입력하세요"));
+			JOptionPane.showMessageDialog(null, ArticleServiceImpl.getInstance().modify(bean));
+			break flag;
+		case DEL:
+			ArticleServiceImpl.getInstance().remove(Integer.parseInt(JOptionPane.showInputDialog("삭제할 게시글 번호를 입력하세요.")));
+			JOptionPane.showMessageDialog(null, "삭제완료");
+			break flag;			
+		}		
+	 }while(true);
+ }
+}

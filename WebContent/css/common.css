@@ -1,0 +1,42 @@
+@charset "UTF-8";
+footer{width:100%; height:50px;padding:10px;}
+table{border-collapse: collapse;}
+#wrapper{width:100%;}
+#go_main{float:right;}
+#title{text-align: center;}
+#container{margin:0 auto; width:100%;height:480px; border:1px solid red; padding-top:50px;}
+.gms-text-center{text-align: center;}
+.gms-border-black{border: 1px solid black;}
+.gms-width-100pro{width:100%;}
+.gms-width-30pro{width:30%;}
+.gms-text-deco-none{text-decoration: none;}
+.gms-margin-auto{margin:0 auto;}
+.gms-float-right{float:right;}
+.gms-list-style-none{list-style-type:none;}
+.gms-inline-block{display:inline-block;}
+.gms-height-30px{height:30px;}
+.gms-widht-5pro{width: 5%;}
+.gms-widht-10pro{width: 10%;}
+.gms-widht-25pro{width: 25%;}
+.gms-widht-35pro{width: 35%;}
+
+
+/*background-color*/
+.gms-background-red{background-color: red;}
+.gms-background-blue{background-color: blue;}
+
+/*font-color*/
+.gms-fontcolor-white{color:white;}
+.gms-fontcolor-grey{color:grey;}
+
+/* unvisited link */
+a:link {color: black;}
+
+/* visited link */
+a:visited {color: green;}
+
+/* mouse over link */
+a:hover {color: hotpink;}
+
+/* selected link */
+a:active {color: blue;}
