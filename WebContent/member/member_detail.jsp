@@ -1,22 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-<title>학생정보 상세</title>
-<link rel="stylesheet" href="../css/member.css" />
-</head>
-<body>
-<div id="wrapper">
-	<header>
-		<h1 id="title">학생정보 상세</h1>
-		<a id="go_main" href="../index.jsp">메인으로 가기</a><br>
-	</header>
-	<hr/>
-	<div id="container">
-	
-	</div>
-
+<%@ include file="member_service.jsp" %>
+<%@ include file="member_head.jsp" %>
+<div id="container">
+	<h1>회원정보 상세조회 </h1>
+	<table id="member_detail_tab">
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
 </div>
-</body>
-</html>
+<%@ include file="../common/footer.jsp" %>

@@ -1,20 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-<title>학생정보 추가</title>
-<link rel="stylesheet" href="../css/member.css" />
-</head>
-<body>
-<div id="wrapper">
-	<header>
-		<h1 id="title">학생정보 추가</h1>
-		<a id="go_main" href="../index.jsp">메인으로 가기</a><br>
-	</header>
-	<hr/>
+<%@ include file="member_head.jsp" %>
+<%@ include file="member_service.jsp" %>
+
 	<div id="container">
-		<form id="join_form" action="">
+		<form id="join_form" action="<%=root(request)%>/member/service_add.jsp" method="get">
 			<fieldset>
 			<legend>join information</legend>
 			<span id="join_id">ID</span>
@@ -23,14 +12,15 @@
 			<input type="text" name="name" placeholder="이름"/>
 			<span id="join_pass">PASSWORD</span>
 			<input type="password" name="pw" placeholder="비밀번호" /><br />
-			<span id="join_birth">BIRTH</span>
-			<input type="date" name="birthday" placeholder="생년월일"/><br /><br>
-	 		<input type="radio" name="gender" value="female" checked> 여성
-			<input type="radio" name="gender" value="male"> 남성<br>
+			<span id="join_birth">생년월일</span>
+			<input type="date" name="birthday" placeholder="yyyy/mm/dd"/><br /><br>
+	 		<input type="radio" name="gender" value="여성" checked> 여성
+			<input type="radio" name="gender" value="남성"> 남성<br>
 			<span id="join_email">email</span><input type="email" name="email" />
+			<span id="join_phone">phone</span><input type="phone" name="phone" />
 			<br>
 			<h3>전공</h3>
-			<select name="major" id="">
+			<select name="major">
 				<option value="computer"selected>컴퓨터공학</option>
 				<option value="economics">경제학</option>
 				<option value="art">미술학</option>
@@ -49,6 +39,4 @@
 		</fieldset>
 		</form>
 	</div>
-</div>
-</body>
-</html>
+<%@ include file="../common/footer.jsp" %>
