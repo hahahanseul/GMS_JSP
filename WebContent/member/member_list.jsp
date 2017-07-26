@@ -2,6 +2,7 @@
 <%@ include file="member_head.jsp" %>
 <%@ include file="member_service.jsp" %>s
 	<div id="container">
+	<div id="sub_title">회원 목록 </div>
 	<!--id, name, ssn, regdate,phone,email,major, subject;-->
 	<table id="member_tab">
 		<tr id="member_menu">

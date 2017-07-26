@@ -22,6 +22,7 @@
 			map.put("name",rs.getString("name"));
 			map.put("regdate",rs.getString("regdate"));
 			map.put("pw",rs.getString("pw"));
+			map.put("ssn",rs.getString("ssn"));
 		}
 	}catch(Exception e){
 		e.printStackTrace();
@@ -54,6 +55,22 @@ public List<Object> searchByName(HttpServletRequest request){
 		e.printStackTrace();
 	}
 	return list;
+}
+public String update(HttpServletRequest request){
+	String name = request.getParameter("name");
+	String id = request.getParameter("id");
+	String rs="";
+	try{
+	Class.forName(ORACLE_DRIVER);	
+	String sql="UPDATE Member SET name=? WHERE id=?";
+	PreparedStatement pstmt = DriverManager.getConnection(ORACLE_URL,USERNAME,PASSWORD).prepareStatement(sql);
+	pstmt.setString(1, name);
+	pstmt.setString(2, id);
+	rs=String.valueOf(pstmt.executeUpdate());
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+	return rs;
 }
 public String root(HttpServletRequest request){
 	return request.getContextPath();

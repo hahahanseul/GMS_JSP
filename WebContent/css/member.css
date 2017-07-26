@@ -20,13 +20,23 @@
 #join_email{display:inline-block;width: 100px;}
 #join_yes_btn{color: white; width:130px; height:30px;}
 #join_no_btn{color: white; width:130px; height:30px;}
+
 /*member_detail.html*/
-
-
+#member_box{width:40%;margin:0 auto;}
+#member_detail_title{padding:10px 15px;font-size: 20px;}
+#member_detail_tab{width: 100%;}
+#member_detail_tab td{border: 1px solid #808080;height: 67px; text-align:center;}
+.content_title{width:154px; font-weight:bold;}
+#member_img{width:150px;height:200px;margin:2px;}
+#member_btn_box{width:40%;height: 40px;margin: 15px auto;}
+#member_btn_box button{width: 45%;height: 100%; margin:0px 3px; display:inline-block;}
+#member_btn_box input{width: 45%;height: 100%; margin:0px 3px; display:inline-block;}
 /*member_list.html*/
 #member_tab{width:90%; margin:0 auto;}
 #member_menu>th{background-color:yellow;border-bottom: 1px solid black;height:40px;text-align:center;}
 #member_menu>td{border-bottom: 1px solid black;height:40px;text-align:center;}
+
 /*member_search*/
 #member_search_box{width:300px;margin: 0 auto;}
+
 /*update.html*/

@@ -3,6 +3,7 @@
 <%@ include file="member_service.jsp" %>
 
 	<div id="container">
+		<div id="sub_title">회원 추가 </div>
 		<form id="join_form" action="<%=root(request)%>/member/service_add.jsp" method="get">
 			<fieldset>
 			<legend>join information</legend>
@@ -17,7 +18,7 @@
 	 		<input type="radio" name="gender" value="여성" checked> 여성
 			<input type="radio" name="gender" value="남성"> 남성<br>
 			<span id="join_email">email</span><input type="email" name="email" />
-			<span id="join_phone">phone</span><input type="phone" name="phone" />
+			<span id="join_phone">phone</span><input type="text" name="phone" />
 			<br>
 			<h3>전공</h3>
 			<select name="major">
