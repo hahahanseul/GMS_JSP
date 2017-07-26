@@ -1,7 +1,23 @@
+<%@page import="java.util.Set"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="member_head.jsp" %>
-<%@ include file="member_service.jsp" %>s
-	<div id="container">
+<%@ include file="member_service.jsp" %>
+<%
+	List<Map<String, String>> list = new ArrayList<>();
+	Map<String, String> map = null;
+	Class.forName(ORACLE_DRIVER);
+	ResultSet rs = DriverManager.getConnection(ORACLE_URL,USERNAME,PASSWORD).prepareStatement("SELECT * FROM Member").executeQuery();
+	while(rs.next()){
+		map=new HashMap<>();
+		map.put("id",rs.getString("id"));
+		map.put("name",rs.getString("name"));
+		map.put("ssn",rs.getString("ssn"));
+		map.put("regdate",rs.getString("regdate"));
+		list.add(map);
+	}
+%>
+<div id="container">
 	<div id="sub_title">회원 목록 </div>
 	<!--id, name, ssn, regdate,phone,email,major, subject;-->
 	<table id="member_tab">
@@ -15,61 +31,24 @@
 			<th>EMAIL</th>
 			<th>MAJOR</th>
 			<th>SUBJECT</th> 
-		}
 		</tr>
+		<%
+		int count=list.size();
+		for(int i=0;i<list.size();i++){
+			Map<String, String> result=list.get(i);%>
 		<tr id="member_menu">
-			<%for(int i=0;i<searchByName(request).size();i++){
-
-			 %>
-			<td><%=i %></td>
-			<td><%=%></td>
-			<%
+			<td><%=count--%></td>			
+			<td><%=result.get("id")%></td>
+			<td><%=result.get("name")%></td>
+			<td><%=result.get("ssn")%></td>
+			<td><%=result.get("regdate")%></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+	<%
 		}
 		%>
-		</tr>
-		<tr id="member_menu">
-			<td>1</td>
-			<td>hong</td>
-			<td>홍길동</td>
-			<td>562021-2145102</td>
-			<td>2017-07-29</td>
-			<td>010-0000-0000</td>
-			<td>redroadtown@gmail.com</td>
-			<td>computer</td>
-			<td>g</td>
-		</tr>
-		<tr id="member_menu">
-			<td>1</td>
-			<td>hong</td>
-			<td>홍길동</td>
-			<td>562021-2145102</td>
-			<td>2017-07-29</td>
-			<td>010-0000-0000</td>
-			<td>redroadtown@gmail.com</td>
-			<td>computer</td>
-			<td>g</td>
-		</tr>
-		<tr id="member_menu">
-			<td>1</td>
-			<td>hong</td>
-			<td>홍길동</td>
-			<td>562021-2145102</td>
-			<td>2017-07-29</td>
-			<td>010-0000-0000</td>
-			<td>redroadtown@gmail.com</td>
-			<td>computer</td>
-			<td>g</td>
-		</tr>
-		<tr id="member_menu">
-			<td>1</td>
-			<td>hong</td>
-			<td>홍길동</td>
-			<td>562021-2145102</td>
-			<td>2017-07-29</td>
-			<td>010-0000-0000</td>
-			<td>redroadtown@gmail.com</td>
-			<td>computer</td>
-			<td>g</td>
 		</tr>
 	</table>
 	</div>

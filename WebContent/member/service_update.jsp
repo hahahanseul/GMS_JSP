@@ -18,6 +18,7 @@ if(update(request).equals("1")){
 	%>
 		<script>
 	alert('회원정보 수정 실패ㅠㅠㅠㅠ');
+	location.href="<%=root(request)%>/member/member_detail.jsp?search=<%=request.getParameter("id")%>";
 	</script>
 	<%
 }
