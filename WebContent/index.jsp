@@ -17,7 +17,7 @@
 	</header>
 	<hr/>
 	<div id="container">
-		<form id="login_form" action="<%=headRoot(request)%>/common/main.jsp" method="get">
+		<form id="login_form" action="<%=headRoot(request)%>/member/service_login.jsp" method="get">
 			<img id="login_img" src="<%=headRoot(request)%>/img/img_main.jpg" alt="" />
 			<span id="login_id">ID</span>
 			<input type="text" name="id" /><br />

@@ -2,19 +2,6 @@
 <%@ page import="java.sql.*" %>
 <%@ include file="../constants/db.jsp"%>
 <%@ include file ="common_service.jsp" %>
-<%
-Class.forName(ORACLE_DRIVER);
-String id = request.getParameter("id");
-String pass = request.getParameter("pw");
-Connection conn =DriverManager.getConnection(ORACLE_URL,USERNAME,PASSWORD);
-String sql = "SELECT * FROM Member WHERE id =?";
-PreparedStatement pstmt = conn.prepareStatement(sql);
-pstmt.setString(1, id);
-ResultSet rs = pstmt.executeQuery();
-if(rs.next()){
-	String rsPass=rs.getString("pw");
-	if(rsPass.equals(pass)){
-		%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +31,7 @@ if(rs.next()){
 			<td>
 			<ul class="index_ul">
 				<li><a href="<%=headRoot(request)%>/member/member_add.jsp">학생정보 추가</a></li>
-				<li><a href="<%=headRoot(request)%>/member/member_list.jsp">학생정보 목록</a></li>
+				<li><a href="<%=headRoot(request)%>/member/member_list.jsp?action=list">학생정보 목록</a></li>
 				<li><a href="<%=headRoot(request)%>/member/member_search.jsp">학생정보 상세</a></li>
 				<li><a href="<%=headRoot(request)%>/member/member_update.jsp">학생정보 수정</a></li>
 				<li><a href="<%=headRoot(request)%>/member/member_delete.jsp">학생정보 삭제</a></li>
@@ -73,22 +60,3 @@ if(rs.next()){
 	</div>
 <%@ include file="footer.jsp" %>
 		
-	<%
-}else{
-		%>
-		<script>
-	alert('잘못된 비밀번호');
-	location.href="<%=headRoot(request)%>/index.jsp";
-	</script>
-		<%
-		
-	}
-}else{
-	%>
-	<script>
-	alert('없는 ID.. 회원가입 바랍니다.');
-	location.href="<%=headRoot(request)%>/member/member_add.jsp";
-	</script>
-	<%
-}
-%>

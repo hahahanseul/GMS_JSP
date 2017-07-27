@@ -2,19 +2,18 @@
 <%@ include file="../common/common_service.jsp" %>
 <%
 String option=request.getParameter("option");
-String search=request.getParameter("search");
 switch(option){
 case "id":
 	%>
 	<script>
-	location.href="<%=headRoot(request)%>/member/member_detail.jsp?search=<%=search%>";
+	location.href="<%=headRoot(request)%>/member/member_detail.jsp?id=<%=request.getParameter("search")%>";
 	</script>
 	<%
 	break;
 case "name":
 	%>
 	<script>
-	location.href="<%=headRoot(request)%>/member/member_list.jsp?search=<%=search%>";
+	location.href="<%=headRoot(request)%>/member/member_list.jsp?action=search&name=<%=request.getParameter("search")%>";
 	</script>
 <%	
 	break;

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="member_head.jsp" %>
 <%@ include file="member_service.jsp" %>
-
 	<div id="container">
 		<div id="sub_title">회원 추가 </div>
 		<form id="join_form" action="<%=root(request)%>/member/service_add.jsp" method="get">
